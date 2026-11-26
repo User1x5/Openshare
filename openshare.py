@@ -86,7 +86,10 @@ def receive():
     if rheader["type"]:  # Type is SPECIFICALLY for only folders so it applies
         print("Folder transferred")
         with zipfile.ZipFile(filename, "r", zipfile.ZIP_DEFLATED) as archive:
-            archive.extractall(filename, "_opensharefolder")
+            newname = (
+                filename + "_opensharefolder"
+            )  # Pls tell me zip doesnt necessarily put .zip at the extraction
+            archive.extractall(path=newname)
             print("Folder decompressed in the current dir")
     connection.close()
     server.close()
