@@ -83,6 +83,11 @@ def receive():
     with open(filename, "wb") as file:
         file.write(received)
 
+    if rheader["type"]:  # Type is SPECIFICALLY for only folders so it applies
+        print("Folder transferred")
+        with zipfile.ZipFile(filename, "r", zipfile.ZIP_DEFLATED) as archive:
+            archive.extractall(filename, "_opensharefolder")
+            print("Folder decompressed in the current dir")
     connection.close()
     server.close()
 
