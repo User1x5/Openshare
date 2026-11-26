@@ -60,3 +60,7 @@ And renember, never send ANYTHING personal if you dont want some geek with some 
 Openshare would not be receiving updates regularly as i mostly develop in a phone since my main tool to program is broken, But itd be happy to merge PRs
 
 please do not leak your ip tho since it only works in the local network so you cant send things over 5 million kilometers away, but if you want to do that, you can use a vpn or something like that, but i dont recommend it since it is not secure and you can get hacked easily
+
+## License
+This project is licensed under GPL 3.0
+Check LICENSE for further info
