@@ -2,6 +2,7 @@ import zipfile
 import socket
 import json
 import os
+import sys
 
 version = "0.1"
 name = "OpenShare"  # will change this to bakashare april fools
@@ -62,8 +63,18 @@ def receive():
     filename = os.path.basename(rheader["filename"])
 
     print(f"Header received! total bytes: {total}, Name: {filename}")
+    sel = input("Do you want to accept the transfer? (Y/N) > ")
+    while sel.lower() not in ["y", "n"]:
+        if sel.lower() == "y":
+            connection.sendall(b"OK")
 
-    connection.sendall(b"OK")
+        elif sel.lower() == "n":
+            print("Transfer rejected!")
+            connection.sendall(b"NO")
+            sys.exit()
+
+        else:
+            print("Invalid option Please input again")
 
     received = b""
 
@@ -162,7 +173,6 @@ def send():
             with open("opensharefoldy.zip", "rb") as folder:  # Get specifications
                 data = folder.read()
                 size = len(data)
-                folder.close
 
             print("Fetching receiver")
 
