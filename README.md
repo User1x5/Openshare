@@ -46,6 +46,17 @@ Hard = Set in the start of the code
 `send()` - The function that sends the file to the receiver
 `receive()` - The function that receives the file from the sender
 
+## What can you do with Openshare?
+i made this program as a classic weekend project, so it is not very useful, but you can use it to send files to your friends or family, or even to yourself if you want to transfer files between your devices, Its not too supported by android devices because you need to have a python interpreter, But you can build it, You can learn TCP from this, so i made it public for that
 
-```
-```
+You can inspect the code and learn from it, or do a fork And do whatever your mind desires, Itd be happy to see what things you can do 
+
+Renember, build what you want, have freedom, and learn from it.
+
+
+## Notes
+It is not guaranteed that a transfer will be secure or so, The protocol is not encrypted so anyone can read from it, But who is sending private info to their friends?
+And renember, never send ANYTHING personal if you dont want some geek with some weird tech to read things over the network.
+Openshare would not be receiving updates regularly as i mostly develop in a phone since my main tool to program is broken, But itd be happy to merge PRs
+
+please do not leak your ip tho since it only works in the local network so you cant send things over 5 million kilometers away, but if you want to do that, you can use a vpn or something like that, but i dont recommend it since it is not secure and you can get hacked easily
