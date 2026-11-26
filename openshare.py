@@ -83,18 +83,19 @@ def receive():
     with open(filename, "wb") as file:
         file.write(received)
 
-    if rheader["type"]:  # Type is SPECIFICALLY for only folders so it applies
+    if rheader["type"] == "zip":
         print("Folder transferred")
         with zipfile.ZipFile(filename, "r", zipfile.ZIP_DEFLATED) as archive:
             newname = (
                 filename + "_opensharefolder"
             )  # Pls tell me zip doesnt necessarily put .zip at the extraction
             archive.extractall(path=newname)
-            print("Folder decompressed in the current dir")
+            print("Folder decompressed in the current dir at", newname)
+
     connection.close()
     server.close()
 
-    print("All done! :)")
+    print("All done! Thanks for using OpenShare!")
 
 
 def send():
@@ -184,7 +185,7 @@ def send():
                     print("Receiver accepted, sending.")
                     client.sendall(
                         data
-                    )  # Since it is on binary and its on bits its fine, and it also works because its just
+                    )  # Since it is on binary and its on bits its fine, and it also works because its just a zip file, so it should be fine. I think. I hope.
 
                 else:
                     print("Receiver canceled transfer")
